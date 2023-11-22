@@ -1,6 +1,9 @@
 package thread.synchronization.jcip;
 
 import org.junit.jupiter.api.Test;
+
+import java.util.stream.IntStream;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CountTest {
@@ -8,8 +11,8 @@ public class CountTest {
     @Test
     public void whenExecute2ThreadThen2() throws InterruptedException {
         var count = new Count();
-        var first = new Thread(count::increment);
-        var second = new Thread(count::increment);
+        var first = new Thread(() -> IntStream.range(0, 100).forEach(i -> count.increment()));
+        var second = new Thread(() -> IntStream.range(0, 100).forEach(i -> count.increment()));
         /* Запускаем нити. */
         first.start();
         second.start();
@@ -17,6 +20,6 @@ public class CountTest {
         first.join();
         second.join();
         /* Проверяем результат. */
-        assertThat(count.get()).isEqualTo(2);
+        assertThat(count.get()).isEqualTo(200);
     }
 }
