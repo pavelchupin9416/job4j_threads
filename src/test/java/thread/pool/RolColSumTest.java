@@ -14,13 +14,13 @@ public class RolColSumTest {
                 {11, 12, 13, 14, 15},
                 {16, 17, 18, 19, 20},
                 {21, 22, 23, 24, 25}};
-        RolColSum.Sums[] sums = RolColSum.sum(matrix);
-        RolColSum.Sums[] exp = new RolColSum.Sums[]{
-                new RolColSum.Sums(15, 55),
-                new RolColSum.Sums(40, 60),
-                new RolColSum.Sums(65, 65),
-                new RolColSum.Sums(90, 70),
-                new RolColSum.Sums(115, 75)};
+        Sums[] sums = RolColSum.sum(matrix);
+        Sums[] exp = new Sums[]{
+                new Sums(15, 55),
+                new Sums(40, 60),
+                new Sums(65, 65),
+                new Sums(90, 70),
+                new Sums(115, 75)};
         assertThat(sums).isEqualTo(exp);
     }
 
@@ -32,13 +32,13 @@ public class RolColSumTest {
                 {11, 12, 13, 14, 15},
                 {16, 17, 18, 19, 20},
                 {21, 22, 23, 24, 25}};
-        RolColSum.Sums[] sums = RolColSum.asyncSum(matrix);
-        RolColSum.Sums[] exp = new RolColSum.Sums[]{
-                new RolColSum.Sums(15, 55),
-                new RolColSum.Sums(40, 60),
-                new RolColSum.Sums(65, 65),
-                new RolColSum.Sums(90, 70),
-                new RolColSum.Sums(115, 75)};
+        Sums[] sums = RolColSum.asyncSum(matrix);
+        Sums[] exp = new Sums[]{
+                new Sums(15, 55),
+                new Sums(40, 60),
+                new Sums(65, 65),
+                new Sums(90, 70),
+                new Sums(115, 75)};
         assertThat(sums).isEqualTo(exp);
     }
 }
